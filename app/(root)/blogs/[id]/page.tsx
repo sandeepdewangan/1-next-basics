@@ -14,8 +14,11 @@ const Blog = ({
   const { lang = "en" } = use(searchParams);
   const { id } = use(params);
 
-  if (id === "2") {
-    throw new Error("No.2 Blog is down!");
+  const randId = Math.floor(Math.random() * 2);
+  console.log(randId);
+
+  if (randId === 0) {
+    throw new Error("No.0 Blog is not available!");
   }
 
   function handleOnClick() {
