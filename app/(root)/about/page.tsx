@@ -7,7 +7,13 @@ export const metadata: Metadata = {
   },
   description: "Desc",
 };
-const About = () => {
+const About = async () => {
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Timeout");
+    }, 3000);
+  });
+
   return <div>About</div>;
 };
 
