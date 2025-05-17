@@ -1,14 +1,16 @@
-import React from "react";
+"use client";
 
-const Blog = async ({
+import React, { use } from "react";
+
+const Blog = ({
   params,
   searchParams,
 }: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ lang?: "en" | "hi" }>;
 }) => {
-  const { lang = "en" } = await searchParams;
-  const { id } = await params;
+  const { lang = "en" } = use(searchParams);
+  const { id } = use(params);
 
   return (
     <div>
