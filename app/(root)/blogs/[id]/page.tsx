@@ -14,6 +14,10 @@ const Blog = ({
   const { lang = "en" } = use(searchParams);
   const { id } = use(params);
 
+  if (id === "2") {
+    throw new Error("No.2 Blog is down!");
+  }
+
   function handleOnClick() {
     router.push("/");
     // router.replace("/"); // router.replace to prevent the user to navigate back to the invalid route.
