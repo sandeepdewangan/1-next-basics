@@ -1,8 +1,13 @@
 import { users } from "@/app/usersData";
+import { NextRequest } from "next/server";
 
 // GET Request
-export async function GET() {
-    return Response.json(users);
+// NextRequest provides convenient method for managing query params.
+export async function GET(request: NextRequest) {
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get('query');
+    const filteredUsers = query ? users.filter((user) => user.name.includes(query)) : users;
+    return Response.json(filteredUsers);
 }
 
 export async function POST(request: Request) {
