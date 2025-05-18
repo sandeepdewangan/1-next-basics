@@ -5,13 +5,17 @@ const DashboardLayout = ({
   analytics,
   revenue,
   notifications,
+  login,
 }: {
   children: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
   analytics: React.ReactNode;
+  login: React.ReactNode;
 }) => {
-  return (
+  const isLoggedIn = false;
+
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
       <div className="flex">
@@ -20,6 +24,8 @@ const DashboardLayout = ({
         {notifications}
       </div>
     </div>
+  ) : (
+    login
   );
 };
 
