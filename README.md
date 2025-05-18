@@ -51,3 +51,7 @@ Approach II: With Parallel routes.
   - Granular control.
 - Sub-navigation.
   - Each slot act as a separate mini application, complete with its own navigation and state management.
+
+### Unmatched Routes in Parallel Routes
+
+Suppose we have 3 slots, and one of the slots navigate to other components, changing the main URL then when user reloads the page it shows 404 Page Not Found Error. Because the url has changed. To solve this issue use `default.tsx`.
