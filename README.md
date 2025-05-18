@@ -24,3 +24,6 @@
 
 - The error boundary don't catch error thrown by the layout.tsx.
 - Move the error.tsx to one level up.
+- The root layout doesnot have the parent element or we can't go one level up for root layout.
+- We will handle these errors with global-error.tsx
+- The global error capture error in production mode.
