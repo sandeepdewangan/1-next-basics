@@ -25,6 +25,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Error in LayoutRouter.tsx
+  const randId = Math.floor(Math.random() * 2);
+  console.log(randId);
+
+  if (randId === 0) {
+    throw new Error("No.0 Blog is not available!");
+  }
+
   return (
     <html lang="en">
       <header>
