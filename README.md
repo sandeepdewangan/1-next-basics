@@ -55,3 +55,15 @@ Approach II: With Parallel routes.
 ### Unmatched Routes in Parallel Routes
 
 Suppose we have 3 slots, and one of the slots navigate to other components, changing the main URL then when user reloads the page it shows 404 Page Not Found Error. Because the url has changed. To solve this issue use `default.tsx`.
+
+### Intercepting Routes
+
+- Allows to load another part of application within a current layout.
+- The new component will be loaded like a modal. Refresh the component will take to the actual route.
+
+Intercepting route conventions:
+
+- `(.)` - to match segment on same level
+- `(..)` - to match segment on one level up
+- `(..)(..)` - to match segment on two level up
+- `(...)` - to match segment from the root app dir
