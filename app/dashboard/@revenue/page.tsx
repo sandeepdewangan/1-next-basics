@@ -1,7 +1,7 @@
 import React from "react";
 
 const Revenue = () => {
-  return <div>Revenuesss</div>;
+  return <div className="p-10 border">Revenue</div>;
 };
 
 export default Revenue;

@@ -14,7 +14,7 @@ const DashboardLayout = ({
   return (
     <div>
       <div>{children}</div>
-      <div>
+      <div className="flex">
         {analytics}
         {revenue}
         {notifications}
