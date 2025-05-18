@@ -1,7 +1,9 @@
+import "./globals.css";
+
 import React from "react";
 
 const Home = () => {
-  return <div>Hello NextJS!</div>;
+  return <div>Home</div>;
 };
 
 export default Home;
