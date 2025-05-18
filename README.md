@@ -27,3 +27,27 @@
 - The root layout doesnot have the parent element or we can't go one level up for root layout.
 - We will handle these errors with global-error.tsx
 - The global error capture error in production mode.
+
+### Parallel Routes
+
+Routing mechanism which used to render multiple pages simultaneouly within same layout.
+
+Problem Statement: Suppose we have three different components which needs to be loaded simultaneously. We can opt traditional way of declaring components and a parallel approach. The parallel approach has some benifits.
+
+Approach I: With traditional components.
+
+Approach II: With Parallel routes.
+
+- Parallel routes are defined using `slots`.
+- To create a slot we need use `@folder` naming convention.
+
+<img src="/public/parallel1.png" />
+
+**Pros**
+
+- Parallel routes are great for splitting a layout into managable slots.
+- Independent route handling
+  - Each slots can handle its own loading and error state.
+  - Granular control.
+- Sub-navigation.
+  - Each slot act as a separate mini application, complete with its own navigation and state management.
