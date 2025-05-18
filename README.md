@@ -73,3 +73,9 @@ Intercepting route conventions:
 - When we first load the /gallery url, the next loads the components described in the `layout` file, where modal is returned as null beacause in `default` it is defined as null when initial render. The children will be loaded and all the images will be shown.
 
 - When we click any image, the `@modal` routes intercepts the id.
+
+### Route Handlers
+
+- It helps to build the RESTful endpoints with complete control over the response.
+- Think of Express + Node.js.
+- External API requests.
