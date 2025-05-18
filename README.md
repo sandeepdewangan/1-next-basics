@@ -67,3 +67,9 @@ Intercepting route conventions:
 - `(..)` - to match segment on one level up
 - `(..)(..)` - to match segment on two level up
 - `(...)` - to match segment from the root app dir
+
+### Gallery example - Parallel Intercepted Routes
+
+- When we first load the /gallery url, the next loads the components described in the `layout` file, where modal is returned as null beacause in `default` it is defined as null when initial render. The children will be loaded and all the images will be shown.
+
+- When we click any image, the `@modal` routes intercepts the id.
