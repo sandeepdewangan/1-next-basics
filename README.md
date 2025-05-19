@@ -79,3 +79,9 @@ Intercepting route conventions:
 - It helps to build the RESTful endpoints with complete control over the response.
 - Think of Express + Node.js.
 - External API requests.
+
+### Caching in Route Handlers
+
+- Route handlers are not cached by default.
+- Caching works with only GET method.
+- When using headers(), cookies() orworking with request object in GET method, caching won't be applied.
