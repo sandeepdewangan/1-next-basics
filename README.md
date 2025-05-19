@@ -85,3 +85,91 @@ Intercepting route conventions:
 - Route handlers are not cached by default.
 - Caching works with only GET method.
 - When using headers(), cookies() orworking with request object in GET method, caching won't be applied.
+
+### Rendering
+
+### Client Side Rendering (CSR)
+
+The browser transforms React components into what we see on screen the UI.
+
+Drawback:
+
+1. Not great for SEO
+2. Performance and UX - Browser do a lot of work, JS bundle bigger and bigger.
+
+**Working**
+
+```mermaid
+sequenceDiagram
+Browser->>Server: GET /index.html
+Server->>Browser: index.html (contains simple HTML)
+Browser->>Server: send /bundle.js
+Server->>Browser: bundle.js (Powerhouse, Interactive)
+Note left of Browser: Initial Render
+```
+
+### Server Side Rendering (SSR)
+
+**Hydration**
+
+React hydration is the process that makes server-rendered HTML interactive on the client side. After the server sends the HTML to the client, React "hydrates" it by attaching event listeners and initializing the state, enabling user interaction. During hydration, React attempts to reuse existing DOM nodes instead of creating new ones, comparing the server-rendered HTML with its virtual DOM and updating as needed
+
+**Working**
+
+```mermaid
+sequenceDiagram
+Browser->>Server: GET /index.html
+Note right of Server: Initial Render
+Server->>Browser: index.html (without interactivity)
+Browser->>Server: send /bundle.js
+Server->>Browser: bundle.js (Powerhouse, Interactive)
+```
+
+**Drawback of SSR: (All or nothing waterfall)**
+
+1. having to load data for the entire page.
+2. loading the javascript for the entire page.
+3. hydrating the entire page.
+
+**Solution to problem**
+
+Use the Suspense component to unlock two major SSR features:
+
+1. HTML streaming on the server: we dont have to fetch everything before hand. If one section is slow we can delay the initial HTML.
+   Even with the faster HTML delivery, we can't start hydrating until we have loaded all the JS for the main section.
+   Solution: Code Spliting can be used using React.lazy.
+2. Selective hydration on the client.
+
+### The Evolution of React
+
+```mermaid
+flowchart LR
+A[CSR] --> B[SSR] --> C[Suspense for SSR]
+```
+
+**Challenges of Suspense for SSR**
+
+1. Large bundle size causing excessive downloads for users.
+2. Unnecessary hydration delaying interactivity.
+3. Heavy client side processing leading to poor performance.
+
+Solution is RSC.
+
+### React Server Components (RSC)
+
+It leverages the strength of both server and client environments to optimize efficiency, load times and interactivity.
+
+Client Components: Handles user interactivity.
+
+Server Components: Code stays on server.
+
+Benifits of Server Components:
+
+1. Smaller bundle size
+2. There is no hydration step, direct access to server side resources
+3. Enhanced security
+4. Imporved data fetching
+5. Caching
+6. Faster initial page load
+7. SEO improved
+8. Efficient streaming: user start seeing content faster instead of waiting for entire page to render on the server.
