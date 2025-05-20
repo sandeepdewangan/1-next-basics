@@ -236,3 +236,10 @@ For interleaving:
 
 - The client function can not be marked as `async`.
 - Server components can be marked as `async`.
+
+### Data Fetching Patterns
+
+1. Sequential
+2. Parallel
+
+**Sequential Data Fetching:** One fetch depends on results of other.
