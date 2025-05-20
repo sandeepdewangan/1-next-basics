@@ -243,3 +243,5 @@ For interleaving:
 2. Parallel
 
 **Sequential Data Fetching:** One fetch depends on results of other.
+
+**Parallel Data Fetching:** Request are eaderly initiated and will load data at the same time.
