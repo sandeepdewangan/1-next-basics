@@ -231,3 +231,8 @@ For interleaving:
   <ServerComponent />
 </ClientComponent>
 ```
+
+### Fetching Data from Client and Server Components
+
+- The client function can not be marked as `async`.
+- Server components can be marked as `async`.
