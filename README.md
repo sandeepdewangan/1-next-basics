@@ -211,3 +211,23 @@ To use dynamic force use:
 It is important to keep server only code separately from client side.
 
 Package: `server-only`, throws build time error if someone import server code into a client component.
+
+### Client Component Placement and Interleaving Server and Client Components
+
+<mark>Important</mark>
+
+- If we have Navbar component and its children has Navlinks and Search components.
+- If we make Navbar as client component then by default its children both Navlinks and Search components become client components.
+- Therefore we should try to place the client component as far from root possible, ideally a leaf component.
+
+For interleaving:
+
+- Client component nested inside server component ✅
+- Server component nested inside client component ❌
+  Workaround to get this is using props.
+
+```ts
+<ClientComponent>
+  <ServerComponent />
+</ClientComponent>
+```
