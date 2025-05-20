@@ -197,3 +197,9 @@ Next.js switches automatically to dynamic rendering when it detects a call to a 
 
 To use dynamic force use:
 `export const dynamic = 'force-dynamic'`
+
+### Streaming
+
+- It allows for progressive UI rendering from the server.
+- Work is break down into smaller chunks and streamed to the client as soon as they are ready.
+- The user can see the parts of the page right away without waiting for everything to load.
