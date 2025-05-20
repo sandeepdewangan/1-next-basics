@@ -173,3 +173,27 @@ Benifits of Server Components:
 6. Faster initial page load
 7. SEO improved
 8. Efficient streaming: user start seeing content faster instead of waiting for entire page to render on the server.
+
+### Server Rendering Strategies
+
+1. Static Rendering
+2. Dynamic Rendering
+3. Streaming
+
+**Static:** Building HTML pages when building an application. Once built these pages are cached by the CDN and serve instantly to the users. Ex. Blog posts, e-commerce product listings, documentation and marketing pages. It is a DEFAULT strategy.
+
+<mark>NOTE: In development pages are re-rendered on every request to reflect the latest changes.</mark>
+
+**Dynamic:** Routes are rendered uniqely for each user when they make a request. Eg. To show personalized data when user request data, social media feeds.
+
+Next.js switches automatically to dynamic rendering when it detects a call to a dynamic API/function. For eg.
+
+- cookies()
+- headers()
+- connection()
+- draftMode()
+- searchParams prop
+- after()
+
+To use dynamic force use:
+`export const dynamic = 'force-dynamic'`
