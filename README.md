@@ -203,3 +203,11 @@ To use dynamic force use:
 - It allows for progressive UI rendering from the server.
 - Work is break down into smaller chunks and streamed to the client as soon as they are ready.
 - The user can see the parts of the page right away without waiting for everything to load.
+
+### Server and Client Composition Pattern
+
+**Server only code**
+
+It is important to keep server only code separately from client side.
+
+Package: `server-only`, throws build time error if someone import server code into a client component.
