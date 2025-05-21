@@ -1,6 +1,7 @@
 import React from "react";
 import { addProduct } from "../prisma-db";
 import { redirect } from "next/navigation";
+import Submit from "@/components/submit";
 
 const ProductDbCreate = () => {
   // this function receives form data as argument.
@@ -20,7 +21,7 @@ const ProductDbCreate = () => {
       <input type="number" name="price" placeholder="Price" />
       <input type="text" name="description" placeholder="Description" />
 
-      <button>Add Product</button>
+      <Submit />
     </form>
   );
 };
