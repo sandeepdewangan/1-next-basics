@@ -4,6 +4,7 @@
 
 1. `useFormStatus()`: It returns status of last submitted form.
 2. `useActionState()` is a Hook that allows you to update state based on the result of a form action.
+3. `useOptimistic` Hook provides a way to optimistically update the user interface before a background operation, like a network request, completes.
 
 ### Templates and Layouts
 
