@@ -1,5 +1,10 @@
 ## NextJS
 
+### Hooks
+
+1. `useFormStatus()`: It returns status of last submitted form.
+2. `useActionState()` is a Hook that allows you to update state based on the result of a form action.
+
 ### Templates and Layouts
 
 **Layouts** let developers define a common structure that stays intact across different routes without re-rendering. This is particularly useful for components like headers, footers, and sidebars that should remain consistent as users navigate through the app.

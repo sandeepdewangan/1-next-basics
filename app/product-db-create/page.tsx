@@ -1,27 +1,35 @@
-import React from "react";
-import { addProduct } from "../prisma-db";
-import { redirect } from "next/navigation";
-import Submit from "@/components/submit";
+"use client";
+
+import React, { useActionState } from "react";
+import { createProduct, FormState } from "../actions/products";
 
 const ProductDbCreate = () => {
-  // this function receives form data as argument.
-  async function createProduct(formData: FormData) {
-    "use server";
-    const title = formData.get("title") as string;
-    const price = formData.get("price") as string;
-    const description = formData.get("description") as string;
+  const initialState: FormState = {
+    errors: {},
+  };
 
-    await addProduct(title, parseInt(price), description);
-    redirect("/products-db");
-  }
+  const [state, formAction, isPending] = useActionState(
+    createProduct,
+    initialState
+  );
 
   return (
-    <form action={createProduct}>
+    <form action={formAction}>
       <input type="text" name="title" placeholder="Title" />
+      {state.errors.title && (
+        <p style={{ color: "red" }}>{state.errors.title}</p>
+      )}
       <input type="number" name="price" placeholder="Price" />
+      {state.errors.description && (
+        <p style={{ color: "red" }}>{state.errors.description}</p>
+      )}
       <input type="text" name="description" placeholder="Description" />
-
-      <Submit />
+      {state.errors.price && (
+        <p style={{ color: "red" }}>{state.errors.price}</p>
+      )}
+      <button disabled={isPending}>Add Product</button>
+      {/* If this is server component then we need to separate the submit button */}
+      {/* <Submit /> */}
     </form>
   );
 };
