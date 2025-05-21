@@ -245,3 +245,48 @@ For interleaving:
 **Sequential Data Fetching:** One fetch depends on results of other.
 
 **Parallel Data Fetching:** Request are eaderly initiated and will load data at the same time.
+
+### Fetching Data From Database
+
+Fetching data directly from database is powerfull because:
+
+- Server components have direct access to server side resources.
+- We dont need API routes or exposing sensitive information.
+
+**Setting up Prisma and SQLite**
+
+<mark>NOTE: Follow Prisma website for latest procedures.</mark>
+
+1. Install Package
+
+`npm i prisma -D`
+
+2. Initialize Sqlite DB
+
+`npx prisma init --datasource-provider sqlite`
+
+3. Under `prisma/schema.prisma`, add db URL
+
+```
+datasource db {
+  provider = "sqlite"
+  url      = "file:app.db"
+}
+```
+
+4. Add prisma/app.db to git ignore
+
+5. Under `prisma/schema.prisma`, add models
+
+```
+model Product {
+  id          Int     @id @default(autoincrement())
+  title       String
+  price       Int
+  description String?
+}
+```
+
+6. Add a migration to create db
+
+`npx prisma migrate dev --name init`
