@@ -1,7 +1,8 @@
 import React from "react";
 import { getProducts } from "../prisma-db";
+import Link from "next/link";
 
-type Product = {
+export type Product = {
   id: number;
   title: string;
   price: number;
@@ -14,7 +15,9 @@ const ProductDb = async () => {
     <div>
       {products.map((prod) => (
         <div key={prod.id}>
-          <h4>{prod.title}</h4>
+          <Link href={`/products-db/${prod.id}`}>
+            <h4>{prod.title}</h4>
+          </Link>
           <p>Rs. {prod.price}</p>
         </div>
       ))}
