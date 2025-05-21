@@ -290,3 +290,8 @@ model Product {
 6. Add a migration to create db
 
 `npx prisma migrate dev --name init`
+
+### Server Actions
+
+- It is the async function executed on the server.
+- They can be called in Server and Client Components to handle form submissions and data mutation.
